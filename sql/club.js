@@ -1,0 +1,21 @@
+var query = `INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (1,'덧셈',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (2,'모딥',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (3,'시나브로',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (4,'DBSG',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (5,'DMS',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (6,'Entry',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (7,'ESD',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (8,'Flosvia',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (9,'GG',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (10,'GRAM',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (11,'INFO',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (12,'LAPIO',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (13,'Nonamed',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (14,'PANG',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (15,'Team. QSS',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (16,'Undefined',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (17,'UP',0,0);
+INSERT INTO club_tbl (id,name,total_budget,current_budget) VALUES (18,'VCC',0,0);
+`;
+
+module.exports = query;
