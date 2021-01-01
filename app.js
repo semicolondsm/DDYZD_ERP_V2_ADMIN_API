@@ -3,14 +3,15 @@ const cors = require('cors');
 require('dotenv').config();
 
 var db = require('./models');
+var clubRouter = require('./routes/clubRouter');
 var app = express();
 
 app.use(cors());
 
+app.use('/club', clubRouter);
+
 app.get('/', (req, res) => {
-    db.sequelize.query("SELECT club.name, title FROM club_tag INNER JOIN club ON club_tag.club_id = club.id INNER JOIN tag ON club_tag.tag_id = tag.id;").then((results, metadata) => {
-        res.json(results[0]);
-    })
+    res.send('Hello;');
 })
 
 db.sequelize.sync().then( async () => {
