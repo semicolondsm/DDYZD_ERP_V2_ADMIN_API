@@ -3,15 +3,15 @@ const cors = require('cors');
 require('dotenv').config();
 
 var db = require('./models');
-var club = require('./models/club');
+var clubRouter = require('./routes/clubRouter');
 var app = express();
 
 app.use(cors());
 
+app.use('/club', clubRouter);
+
 app.get('/', (req, res) => {
-    db.club_tbl.findAll().then((result) => {
-        res.json(result);
-    });
+    res.send('Hello;');
 })
 
 db.sequelize.sync().then( async () => {
