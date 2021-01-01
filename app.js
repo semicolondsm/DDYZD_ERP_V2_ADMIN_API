@@ -9,8 +9,16 @@ var app = express();
 app.use(cors());
 
 app.get('/', (req, res) => {
+    let club_arr = [];
     db.club_tbl.findAll().then((result) => {
-        res.json(result);
+
+        for(let i = 0; i < result.length; i++){
+            club_arr.push({
+                name: result[i].name
+            });
+        }
+        console.log(club_arr);
+        res.json(club_arr);
     });
 })
 
