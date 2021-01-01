@@ -8,7 +8,9 @@ var app = express();
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send("Hello World!");
+    db.club_tbl.findAll().then((result) => {
+        res.json(result);
+    });
 })
 
 db.sequelize.sync().then(() => {

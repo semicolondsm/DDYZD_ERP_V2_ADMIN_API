@@ -7,6 +7,8 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 
 const db = {};
 
+db.club_tbl = require('./club')(sequelize, Sequelize);
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
