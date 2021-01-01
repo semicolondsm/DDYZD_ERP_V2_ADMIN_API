@@ -1,5 +1,6 @@
+var models = require('../models');
 module.exports = (sequelize, DataTypes) => {
-    const club = sequelize.define("club_tbl", {
+    var club = sequelize.define("club", {
         name: {
             type: DataTypes.STRING(30),
             allowNull: false,
@@ -19,6 +20,16 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true,
         timestamps: false,
     });
+
+    club.associate = function (models) {
+        club.hasOne(models.club_tag, { 
+          foreignKey: 'club_id', 
+          as: 'club_tag', 
+          onDelete: 'CASCADE',
+          onUpdate: 'CASCADE'
+        });
+      };
+
     return club;
     
     /*CREATE TABLE `club` (
