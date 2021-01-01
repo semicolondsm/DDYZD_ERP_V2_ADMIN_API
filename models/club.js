@@ -12,11 +12,12 @@ module.exports = (sequelize, DataTypes) => {
 
         current_budget: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
         }
-    
+
     }, {
         freezeTableName: true,
+        timestamps: false,
     });
     return club;
     

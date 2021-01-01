@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 var db = require('./models');
+var club = require('./models/club');
 var app = express();
 
 app.use(cors());
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
     });
 })
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync().then( async () => {
     app.listen(3000, () => {
         console.log('server running on port 3000')
     });
