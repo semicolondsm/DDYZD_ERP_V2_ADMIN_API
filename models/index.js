@@ -10,6 +10,8 @@ const db = {};
 db.club_tbl = require('./club')(sequelize, Sequelize);
 db.tag_tbl = require('./tag')(sequelize, Sequelize);
 db.clubTag_tbl = require('./club_tag')(sequelize, Sequelize);
+db.user_tbl = require('./user')(sequelize, Sequelize);
+db.supply_tbl = require('./supply')(sequelize, Sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
