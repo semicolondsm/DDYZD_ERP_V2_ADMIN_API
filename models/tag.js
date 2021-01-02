@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     var tag = sequelize.define("tag", {
-        title: {
+        tag: {
             type: DataTypes.STRING(15),
             allowNull: false,
         },
@@ -19,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     return tag;
+};
 
-    /*
+/*
     CREATE TABLE `tag` (
     `id` int NOT NULL AUTO_INCREMENT,
     `title` varchar(15) NOT NULL,
@@ -28,4 +29,3 @@ module.exports = (sequelize, DataTypes) => {
     ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
     ]*/
-};
