@@ -18,7 +18,7 @@ let exchange = (status) => {
 }
 
 exports.showList = async (req, res) => {
-    db.sequelize.query("SELECT club.name, tag FROM club_tag INNER JOIN club ON club_tag.club_id = club.id INNER JOIN tag ON club_tag.tag_id = tag.id;").then((results, metadata) => {
+    db.sequelize.query("SELECT club.name, tag FROM club_tag INNER JOIN club ON club_tag.club_id = club.id INNER JOIN tag ON club_tag.tag_id = tag.id;").then((result, metadata) => {
         res.json(result[0]);
     });
 }
