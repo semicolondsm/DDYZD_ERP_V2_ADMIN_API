@@ -30,25 +30,20 @@ module.exports = (sequelize, DataTypes) => {
         },
         club_id: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            references: {model: 'club', key: 'id'},
+            onUpdate: 'CASCADE'
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            references: {model: 'user', key: 'id'},
+            onUpdate: 'CASCADE'
         }
     }, {
         freezeTableName: true,
         timestamps: false,
     });
-
-    club.associate = function (models) {
-        club.hasOne(models.club_tag, { 
-          foreignKey: 'club_id', 
-          as: 'club_tag', 
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE'
-        });
-      };
 
     return supply;
 };
