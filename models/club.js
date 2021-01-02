@@ -1,4 +1,3 @@
-var models = require('../models');
 module.exports = (sequelize, DataTypes) => {
     var club = sequelize.define("club", {
         name: {
@@ -15,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true,
         }
-
     }, {
         freezeTableName: true,
         timestamps: false,
