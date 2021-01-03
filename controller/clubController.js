@@ -4,13 +4,13 @@ const club = require('../models/club');
 let exchange = (status) => {
     switch(status){
         case 0:
-            return "승인됨";
+            return "승인 거절";
             break;
         case 1:
-            return "거절됨";
+            return "승인 완료";
             break;
         case 2:
-            return "요청중";
+            return "요청 중";
             break;
         default:
             console.log("ERROR!!");
@@ -38,6 +38,12 @@ exports.supplyList = async (req, res) => {
                 url: result[0][i].link
             });
         }
+
+        if(club_arr.length === 0){
+            res.status(404).send("404 NOT FOUND");
+            return;
+        }
+
         res.json(club_arr);
     })
 }
