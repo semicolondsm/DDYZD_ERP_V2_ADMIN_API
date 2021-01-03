@@ -38,6 +38,12 @@ exports.supplyList = async (req, res) => {
                 url: result[0][i].link
             });
         }
+
+        if(club_arr.length === 0){
+            res.status(404).send("404 NOT FOUND");
+            return;
+        }
+
         res.json(club_arr);
     })
 }
