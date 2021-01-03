@@ -47,3 +47,19 @@ exports.supplyList = async (req, res) => {
         res.json(club_arr);
     })
 }
+
+exports.supplyAccept = async (req, res) => {
+    db.supply_tbl.findOne({
+        attributes: ["status"],
+        where: {id: req.params.supply_id}
+    })
+    .then(db_status => {
+        if(db_status.status === 2) {
+            db.supply_tbl.update({status: 1}, {where: {id: req.params.supply_id}})
+            .then(result => res.json(result))
+            .catch(err => res.json(err));
+        } else {
+            res.status(400).send("400 이미 거절 되었거나 승락 되었습니다.")
+        }
+    })
+}

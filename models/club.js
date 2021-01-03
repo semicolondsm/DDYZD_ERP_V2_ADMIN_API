@@ -26,7 +26,15 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
         });
-      };
+    };
+
+    club.associate = function (models) {
+        club.hasOne(models.supply, {
+            foreignKey: 'club_id',
+            as: 'supply',
+            onUpdate: 'CASCADE'
+        });
+    };
 
     return club;
     

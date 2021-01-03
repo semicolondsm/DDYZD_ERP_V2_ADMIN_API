@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false,
     });
 
+    user.associate = function (models) {
+        user.hasOne(models.supply, { 
+          foreignKey: 'user_id', 
+          as: 'supply', 
+          onUpdate: 'CASCADE'
+        });
+    };
+
     return user;
 };
 
