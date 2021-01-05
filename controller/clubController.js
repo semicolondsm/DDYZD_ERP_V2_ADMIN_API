@@ -1,5 +1,4 @@
 const db = require('../models');
-const club = require('../models/club');
 
 let exchange = (status) => {
     switch(status){
