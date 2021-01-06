@@ -1,20 +1,5 @@
 const db = require('../models');
-
-let exchange = (status) => {
-    switch(status){
-        case 0:
-            return "승인 거절";
-            break;
-        case 1:
-            return "승인 완료";
-            break;
-        case 2:
-            return "요청 중";
-            break;
-        default:
-            console.log("ERROR!!");
-    }
-}
+const { exchange } = require('../config/exchange')
 
 exports.showList = async (req, res) => {
     db.sequelize.query("SELECT club.name, tag FROM club_tag INNER JOIN club ON club_tag.club_id = club.id INNER JOIN tag ON club_tag.tag_id = tag.id;").then((result, metadata) => {
