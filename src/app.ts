@@ -1,6 +1,6 @@
 import "reflect-metadata";
 
-import express , { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
@@ -8,6 +8,12 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
 
 import { HttpError, apiNotFoundError } from "./error";
 import config from "./config";
+
+// DB connect
+import { createConnection } from "typeorm";
+createConnection()
+.then(() => console.log("DB Connected"))
+.catch((err) => console.log(err));
 
 const app: express.Application = express();
 
