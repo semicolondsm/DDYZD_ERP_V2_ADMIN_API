@@ -1,4 +1,5 @@
 import config from './src/config';
+import { Club, Tag, ClubHasTag } from './src/models';
 
 export = {
     type: "mysql",
@@ -8,5 +9,5 @@ export = {
     password: config.mysql.dbPass,
     database: config.mysql.dbName,
     synchronize: true,
-    entities: []
+    entities: [Club, Tag, ClubHasTag]
 } 
