@@ -19,7 +19,8 @@
       "emitDecoratorMetadata": true
     },
     "include": [
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "ormconfig.ts"
     ],
     "exclude": [
       "node_modules"
