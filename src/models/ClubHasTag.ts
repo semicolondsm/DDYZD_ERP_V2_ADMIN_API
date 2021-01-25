@@ -1,5 +1,5 @@
 import { Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Club } from "./club";
+import { Club } from "./Club";
 import { Tag } from "./Tag";
 
 @Entity("club_has_tag")

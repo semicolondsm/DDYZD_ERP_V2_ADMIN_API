@@ -1,4 +1,4 @@
-import { Club } from "./club";
+import { Club } from "./Club";
 import { Tag } from "./Tag";
 import { ClubHasTag } from "./ClubHasTag";
 
