@@ -9,6 +9,8 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
 import { HttpError, apiNotFoundError } from "./error";
 import config from "./config";
 
+import route from "./api"
+
 // DB connect
 import { createConnection } from "typeorm";
 createConnection()
@@ -20,6 +22,8 @@ const app: express.Application = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
+
+app.use("/v2", route());
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send("<h1>Hello;</h1>");
