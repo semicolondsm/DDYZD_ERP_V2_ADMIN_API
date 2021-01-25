@@ -1,8 +1,11 @@
 import "reflect-metadata";
 
 import express, { Request, Response, NextFunction } from "express";
+import morgan from "morgan";
 import cors from "cors";
 import path from "path";
+import moment from "moment-timezone";
+import logger, { errorStream, infoStream } from "./config/winston";
 import dotenv from "dotenv";
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
@@ -15,13 +18,30 @@ import route from "./api"
 import { createConnection } from "typeorm";
 createConnection()
 .then(() => console.log("DB Connected"))
-.catch((err) => console.log(err));
+.catch((err) => {
+    logger.error(`Mysql connection error: ${err}`);
+    process.exit(1);
+});
 
 const app: express.Application = express();
+
+morgan.token("date", (req, res) => {
+    return moment().tz("Asia/Seoul").format();
+});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
+app.use(morgan("combined", { 
+        stream: errorStream, 
+        skip: (req, res) => res.statusCode < 500,
+    })
+)
+app.use(morgan("combined", {
+        stream: infoStream,
+        skip: (req, res) => res.statusCode >= 500,
+    })
+)
 
 app.use("/v2", route());
 
