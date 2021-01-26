@@ -1,2 +1,7 @@
 import club from "./club";
-export { club };
+import auth from "./auth";
+
+export { 
+    club,
+    auth
+};
