@@ -17,4 +17,8 @@ export default class ClubRepository extends Repository<Club> {
             .orderBy("club.club_name", "ASC")
             .getRawMany();
     }
+
+    public async setBudget(club_id: number, budget: number) {
+        return this.update(club_id, { total_budget: budget });
+    }
 }
