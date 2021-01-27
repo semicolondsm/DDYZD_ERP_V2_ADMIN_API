@@ -9,11 +9,13 @@ class HttpError extends Error {
 }
 
 const invalidParameterError = new HttpError("Invalid parameter", 400);
+const supplyAlreadyCheckError = new HttpError("Supply already checked", 400);
 const invalidTokenError = new HttpError("Invalid token", 401);
 const invalidLoginInformationError = new HttpError("Invalid id or password", 403);
 const notAccessTokenError = new HttpError("Authorization is not access token", 403);
 const notRefreshTokenError = new HttpError("x-refresh-token is not refresh token", 403);
 const apiNotFoundError = new HttpError("API not found", 404);
+const supplyNotFoundError = new HttpError("Supply not found", 404);
 const expiredTokenError = new HttpError("Expired token", 410);
 
 export {
@@ -25,4 +27,6 @@ export {
     notAccessTokenError,
     expiredTokenError,
     notRefreshTokenError,
+    supplyNotFoundError,
+    supplyAlreadyCheckError,
 }
