@@ -1,15 +1,15 @@
 import { EntityRepository, getCustomRepository, Repository } from "typeorm";
+import { ClubRepository } from "../interfaces";
 import { Club } from "../models";
 
-// implements later
 @EntityRepository(Club)
-export default class ClubRepository extends Repository<Club> {
+export default class ClubRepositoryImpl extends Repository<Club> implements ClubRepository {
 
     static getQueryRepository() {
-        return getCustomRepository(ClubRepository);
+        return getCustomRepository(ClubRepositoryImpl);
     }
 
-    public async clubList() {
+    public async clubList(): Promise<Club[]> {
         return this.createQueryBuilder("club")
             .innerJoin("club.clubHasTags", "club_has_tag")
             .innerJoin("club_has_tag.tag", "tag")
@@ -19,7 +19,7 @@ export default class ClubRepository extends Repository<Club> {
             .getRawMany();
     }
 
-    public async setBudget(club_id: number, budget: number) {
-        return this.update(club_id, { total_budget: budget });
+    public async setBudget(id: number, budget: number): Promise<void> {
+        await this.update(id, { total_budget: budget });
     }
 }
