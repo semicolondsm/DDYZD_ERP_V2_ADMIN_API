@@ -7,9 +7,11 @@ export default class SupplyService {
         if(!await SupplyRepository.getQueryRepository().findSupplyById(supply_id)) {
             throw supplyNotFoundError;
         }
+
         if(!await SupplyRepository.getQueryRepository().findSupplyByStatus(supply_id, 2)) {
             throw supplyAlreadyCheckError;
         }
+
         await SupplyRepository.getQueryRepository().supplyAccept(supply_id);
     }
 }
