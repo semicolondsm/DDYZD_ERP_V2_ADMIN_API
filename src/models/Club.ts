@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { ClubHasTag } from "./ClubHasTag";
+import { ClubHasTag, Supply } from ".";
 
 @Entity()
 export class Club {
@@ -35,4 +35,7 @@ export class Club {
 
     @OneToMany(() => ClubHasTag, clubHasTag => clubHasTag.club)
     clubHasTags: ClubHasTag[];
+
+    @OneToMany(() => Supply, supply => supply.club)
+    supplies: Supply[];
 }
