@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import AuthController from "../../controllers/auth";
 import validate, { Property } from "../middlewares/paramValidation";
 import { loginSchema } from "../middlewares/paramValidation/schemas";
