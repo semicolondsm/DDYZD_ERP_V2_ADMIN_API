@@ -16,6 +16,7 @@ const notAccessTokenError = new HttpError("Authorization is not access token", 4
 const notRefreshTokenError = new HttpError("x-refresh-token is not refresh token", 403);
 const apiNotFoundError = new HttpError("API not found", 404);
 const supplyNotFoundError = new HttpError("Supply not found", 404);
+const clubNotFoundError = new HttpError("Club not found error", 404);
 const expiredTokenError = new HttpError("Expired token", 410);
 
 export {
@@ -29,4 +30,5 @@ export {
     notRefreshTokenError,
     supplyNotFoundError,
     supplyAlreadyCheckError,
+    clubNotFoundError,
 }

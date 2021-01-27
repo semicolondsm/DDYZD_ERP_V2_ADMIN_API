@@ -17,4 +17,11 @@ export default (app: Router) => {
         validate({ schema: supplySchema, property: Property.PARAMS }),
         tryCatchHandler(supplyController.supplyAccept)
     );
+
+    route.patch(
+        "/:supply_id/deny",
+        tokenVerification,
+        validate({ schema: supplySchema, property: Property.PARAMS }),
+        tryCatchHandler(supplyController.supplyDeny)
+    )
 }
