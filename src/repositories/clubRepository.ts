@@ -1,6 +1,7 @@
 import { EntityRepository, getCustomRepository, Repository } from "typeorm";
-import { Club, ClubHasTag, Tag } from "../models";
+import { Club } from "../models";
 
+// implements later
 @EntityRepository(Club)
 export default class ClubRepository extends Repository<Club> {
 
