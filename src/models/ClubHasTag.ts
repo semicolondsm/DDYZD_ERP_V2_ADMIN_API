@@ -1,6 +1,5 @@
 import { Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Club } from "./Club";
-import { Tag } from "./Tag";
+import { Club, Tag } from ".";
 
 @Entity("club_has_tag")
 export class ClubHasTag {
