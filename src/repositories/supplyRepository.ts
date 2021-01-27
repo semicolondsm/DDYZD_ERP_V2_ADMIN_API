@@ -20,4 +20,8 @@ export default class SupplyRepositoryImpl extends Repository<Supply> implements 
     public async supplyAccept(id: number): Promise<void> {
         await this.update({ id }, { status: 1 });
     }
+
+    public async supplyDeny(id: number): Promise<void> {
+        await this.update({ id }, { status: 0 });
+    }
 }
