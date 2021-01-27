@@ -2,6 +2,8 @@ import { Router } from "express";
 import ClubController from "../../controllers/club";
 import tokenVerification from "../middlewares/tokenVerification";
 import tryCatchHandler from "../middlewares/tryCatchHandler";
+import validate, { Property } from "../middlewares/paramValidation";
+import { budgetSchema } from "../middlewares/paramValidation/schemas";
 const route = Router();
 
 export default (app: Router) => {
@@ -9,6 +11,15 @@ export default (app: Router) => {
 
     app.use("/club", route);
 
-    route.get("/list", tryCatchHandler(clubController.clubList));
-    route.patch("/:club_id/budget", tokenVerification, tryCatchHandler(clubController.setBudget));
+    route.get(
+        "/list",
+        tryCatchHandler(clubController.clubList)
+    );
+
+    route.patch(
+        "/:club_id/budget",
+        tokenVerification,
+        validate({ schema: budgetSchema, property: Property.BODY }),
+        tryCatchHandler(clubController.setBudget)
+    );
 }
