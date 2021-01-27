@@ -8,4 +8,9 @@ export default class SupplyController {
         await this.supplyService.supplyAccept(req.params.supply_id as unknown as number);
         return res.status(200).json({ message: "Accept supply success" });
     }
+
+    public supplyDeny = async (req: Request, res: Response, next: NextFunction) => {
+        await this.supplyService.supplyDeny(req.params.supply_id as unknown as number);
+        return res.status(200).json({ message: "Deny supply success" });
+    }
 }
