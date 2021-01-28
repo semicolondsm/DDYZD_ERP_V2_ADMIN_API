@@ -23,5 +23,13 @@ export default (app: Router) => {
         tokenVerification,
         validate({ schema: supplySchema, property: Property.PARAMS }),
         tryCatchHandler(supplyController.supplyDeny)
-    )
+    );
+
+    route.get(
+        "/:supply_id/invoice",
+        tokenVerification,
+        validate({ schema: supplySchema, property: Property.PARAMS }),
+        tryCatchHandler(supplyController.supplyInvoice)
+    );
+
 }

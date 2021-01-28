@@ -17,6 +17,10 @@ export default class SupplyRepositoryImpl extends Repository<Supply> implements 
         return this.findOne({ id, status });
     }
 
+    public async findInvoiceById(id: number): Promise<Supply> {
+        return this.findOne({ id }, { select: ["invoice"] });
+    }
+
     public async supplyAccept(id: number): Promise<void> {
         await this.update({ id }, { status: 1 });
     }
