@@ -21,6 +21,19 @@ export default class SupplyRepositoryImpl extends Repository<Supply> implements 
         return this.findOne({ id }, { select: ["invoice"] });
     }
 
+    public async findSupplyAllByState(state: number): Promise<Supply[]> {
+        return this.createQueryBuilder("supply")
+            .innerJoin("supply.club", "club")
+            .innerJoin("supply.user", "user")
+            .where("status = :state", { state })
+            .select("club.club_name", "club")
+            .addSelect("user.name", "applicant")
+            .addSelect("supply.id", "id")
+            .addSelect("supply.name", "name")
+            .addSelect(["price", "status", "message", "count", "link"])
+            .getRawMany();
+    }
+
     public async supplyAccept(id: number): Promise<void> {
         await this.update({ id }, { status: 1 });
     }
