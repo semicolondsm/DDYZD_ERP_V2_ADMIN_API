@@ -6,4 +6,5 @@ export default interface SupplyRepository {
     findSupplyById(id: number): Promise<Supply>;
     findSupplyByStatus(id:number, status: number): Promise<Supply>;
     findInvoiceById(id: number): Promise<Supply>;
+    findSupplyAllByState(state: number): Promise<Supply[]>;
 }
