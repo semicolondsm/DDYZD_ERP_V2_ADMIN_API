@@ -3,7 +3,7 @@ import SupplyController from "../../controllers/supply";
 import tokenVerification from "../middlewares/tokenVerification";
 import tryCatchHandler from "../middlewares/tryCatchHandler";
 import validate, { Property } from "../middlewares/paramValidation";
-import { supplySchema } from "../middlewares/paramValidation/schemas";
+import { stateSchema, supplySchema } from "../middlewares/paramValidation/schemas";
 const route = Router();
 
 export default (app: Router) => {
@@ -30,6 +30,13 @@ export default (app: Router) => {
         tokenVerification,
         validate({ schema: supplySchema, property: Property.PARAMS }),
         tryCatchHandler(supplyController.supplyInvoice)
+    );
+
+    route.get(
+        "/list",
+        tokenVerification,
+        validate({ schema: stateSchema, property: Property.QUERY }),
+        tryCatchHandler(supplyController.supplyList)
     );
 
 }
