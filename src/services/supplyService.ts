@@ -1,5 +1,5 @@
 import SupplyRepository from "../repositories/supplyRepository";
-import { supplyAlreadyCheckError, supplyInvoiceNullError, supplyNotFoundError } from "../error";
+import { supplyAlreadyCheckError, supplyInvoiceNullError, supplyListNullError, supplyNotFoundError } from "../error";
 
 export default class SupplyService {
     public async supplyAccept (id: number) {
@@ -24,13 +24,19 @@ export default class SupplyService {
         return invoice;
     }
 
-    private async notFoundError(id: number) {
+    public async supplyList (state: number) {
+        const list = await SupplyRepository.getQueryRepository().findSupplyAllByState(state);
+        if(list.length === 0) throw supplyListNullError;
+        return list
+    }
+
+    private async notFoundError (id: number) {
         if(!await SupplyRepository.getQueryRepository().findSupplyById(id)) {
             throw supplyNotFoundError;
         }
     }
 
-    private async checkError(id: number) {
+    private async checkError (id: number) {
         if(!await SupplyRepository.getQueryRepository().findSupplyByStatus(id, 2)) {
             throw supplyAlreadyCheckError;
         }
