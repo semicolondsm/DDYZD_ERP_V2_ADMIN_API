@@ -16,6 +16,12 @@ export default class SupplyController {
 
     public supplyInvoice = async (req: Request, res: Response, next: NextFunction) => {
         const invoice = await this.supplyService.supplyInvoice(req.params.supply_id as unknown as number);
+        console.log(invoice);
         return res.status(200).json(invoice);
+    }
+
+    public supplyList = async (req: Request, res: Response, next: NextFunction) => {
+        const list = await this.supplyService.supplyList(req.query.state as unknown as number);
+        return res.status(200).json(list);
     }
 }
