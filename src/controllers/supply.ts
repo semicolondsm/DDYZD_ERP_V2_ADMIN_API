@@ -13,4 +13,9 @@ export default class SupplyController {
         await this.supplyService.supplyDeny(req.params.supply_id as unknown as number);
         return res.status(200).json({ message: "Deny supply success" });
     }
+
+    public supplyInvoice = async (req: Request, res: Response, next: NextFunction) => {
+        const invoice = await this.supplyService.supplyInvoice(req.params.supply_id as unknown as number);
+        return res.status(200).json(invoice);
+    }
 }
