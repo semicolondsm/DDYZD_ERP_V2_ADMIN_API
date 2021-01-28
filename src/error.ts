@@ -17,6 +17,7 @@ const notRefreshTokenError = new HttpError("x-refresh-token is not refresh token
 const apiNotFoundError = new HttpError("API not found", 404);
 const supplyNotFoundError = new HttpError("Supply not found", 404);
 const clubNotFoundError = new HttpError("Club not found error", 404);
+const supplyInvoiceNullError = new HttpError("Invoice is null", 404);
 const expiredTokenError = new HttpError("Expired token", 410);
 
 export {
@@ -31,4 +32,5 @@ export {
     supplyNotFoundError,
     supplyAlreadyCheckError,
     clubNotFoundError,
+    supplyInvoiceNullError,
 }
