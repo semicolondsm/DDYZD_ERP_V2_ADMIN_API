@@ -14,4 +14,9 @@ export default class ClubController {
         await this.clubService.setBudget(req.params.club_id as unknown as number, budget);
         return res.status(200).json({ message: "Supply accepted" });
     }
+
+    public clubSupplyList = async (req: Request, res: Response, next: NextFunction) => {
+        const list = await this.clubService.clubSupplyList(req.params.club_id as unknown as number, req.query.state as unknown as number);
+        return res.status(200).json(list);
+    }
 }
