@@ -3,6 +3,7 @@ import refreshSchema from "./refreshSchema";
 import budgetSchema from "./budgetSchema";
 import supplySchema from "./supplySchema";
 import stateSchema from "./stateSchema";
+import clubSchema from "./clubSchema";
 
 export {
     loginSchema,
@@ -10,4 +11,5 @@ export {
     budgetSchema,
     supplySchema,
     stateSchema,
+    clubSchema,
 }
