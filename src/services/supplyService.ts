@@ -27,7 +27,7 @@ export default class SupplyService {
     public async supplyList (state: number) {
         const list = await SupplyRepository.getQueryRepository().findSupplyAllByState(state);
         if(list.length === 0) throw supplyListNullError;
-        return list
+        return list;
     }
 
     private async notFoundError (id: number) {

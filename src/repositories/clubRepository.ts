@@ -22,4 +22,17 @@ export default class ClubRepositoryImpl extends Repository<Club> implements Club
     public async setBudget(id: number, budget: number): Promise<void> {
         await this.update(id, { total_budget: budget });
     }
+
+    public async findAllClubSupplyList(id: number, state: number): Promise<Club[]> {
+        return this.createQueryBuilder("club")
+            .innerJoin("club.supplies", "supply")
+            .innerJoin("supply.user", "user")
+            .where("club.club_id = :club_id AND status = :status", { club_id: id, status: state })
+            .select("club.club_name", "club")
+            .addSelect("user.name", "applicant")
+            .addSelect("supply.id", "id")
+            .addSelect("supply.name", "name")
+            .addSelect(["price", "status", "message", "count", "link"])
+            .getRawMany();
+    }
 }
