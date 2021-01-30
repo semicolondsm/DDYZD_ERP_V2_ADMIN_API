@@ -35,6 +35,12 @@ export default class ClubService {
         await ClubHeadRepositoryImpl.getQueryRepository().newClubHead(club, user);
     }
 
+    public deleteClub = async (id: number) => {
+        await this.notFoundError(id);
+
+        await ClubRepositoryImpl.getQueryRepository().deleteClub(id);
+    }
+
     private async notFoundError(id: number) {
         if(!await ClubRepositoryImpl.getQueryRepository().findOne(id)) {
             throw clubNotFoundError;

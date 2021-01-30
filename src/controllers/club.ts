@@ -25,4 +25,9 @@ export default class ClubController {
         await this.clubService.newClub(club_name, gcn);
         return res.status(200).json({ message: "Club created" });
     }
+
+    public deleteClub = async (req: Request, res: Response, next: NextFunction) => {
+        await this.clubService.deleteClub(req.params.club_id as unknown as number);
+        return res.status(200).json({ message: "Club deleted" });
+    }
 }

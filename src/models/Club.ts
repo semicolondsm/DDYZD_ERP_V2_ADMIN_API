@@ -21,21 +21,21 @@ export class Club {
     @Column({ type: "datetime", nullable: true })
     close_at?: Date;
 
-    @Column({ default: "", nullable: true  })
+    @Column({ default: "", nullable: true })
     description?: string;
 
-    @Column({ default: "default" })
+    @Column({ default: "default", nullable: true })
     banner_image?: string;
 
-    @Column({ default: "default" })
+    @Column({ default: "default", nullable: true })
     profile_image?: string;
 
-    @Column({ nullable: true })
+    @Column({ default: "default", nullable: true })
     hongbo_image?: string;
 
-    @OneToMany(() => ClubHasTag, clubHasTag => clubHasTag.club)
+    @OneToMany(() => ClubHasTag, clubHasTag => clubHasTag.club, { onDelete: "CASCADE" })
     clubHasTags: ClubHasTag[];
 
-    @OneToMany(() => Supply, supply => supply.club)
+    @OneToMany(() => Supply, supply => supply.club, { onDelete: "CASCADE" })
     supplies: Supply[];
 }

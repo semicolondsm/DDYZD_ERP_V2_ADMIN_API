@@ -1,4 +1,4 @@
-import { EntityRepository, getCustomRepository, Repository } from "typeorm";
+import { DeleteResult, EntityRepository, getCustomRepository, Repository } from "typeorm";
 import { ClubRepository } from "../interfaces";
 import { Club } from "../models";
 
@@ -45,5 +45,9 @@ export default class ClubRepositoryImpl extends Repository<Club> implements Club
             club_name: name
         });
         return this.save(user);
+    }
+
+    public async deleteClub(id: number): Promise<DeleteResult> {
+        return this.delete(id);
     }
 }
