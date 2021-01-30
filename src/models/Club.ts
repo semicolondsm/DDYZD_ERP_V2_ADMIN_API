@@ -22,16 +22,16 @@ export class Club {
     close_at?: Date;
 
     @Column({ default: "", nullable: true  })
-    description: string;
+    description?: string;
 
-    @Column()
-    banner_image: string;
+    @Column({ default: "default" })
+    banner_image?: string;
 
-    @Column()
-    profile_image: string;
+    @Column({ default: "default" })
+    profile_image?: string;
 
     @Column({ nullable: true })
-    hongbo_image: string;
+    hongbo_image?: string;
 
     @OneToMany(() => ClubHasTag, clubHasTag => clubHasTag.club)
     clubHasTags: ClubHasTag[];
