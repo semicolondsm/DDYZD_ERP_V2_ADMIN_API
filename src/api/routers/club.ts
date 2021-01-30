@@ -18,6 +18,13 @@ export default (app: Router) => {
         tryCatchHandler(clubController.newClub)   
     );
 
+    route.delete(
+        "/:club_id",
+        tokenVerification,
+        validate({ schema: clubSchema, property: Property.PARAMS }),
+        tryCatchHandler(clubController.deleteClub)
+    );
+
     route.get(
         "/list",
         tryCatchHandler(clubController.clubList)
