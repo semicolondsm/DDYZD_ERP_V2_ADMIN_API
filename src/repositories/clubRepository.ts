@@ -35,4 +35,15 @@ export default class ClubRepositoryImpl extends Repository<Club> implements Club
             .addSelect(["price", "status", "message", "count", "link"])
             .getRawMany();
     }
+
+    public async findClubByName(name: string): Promise<Club> {
+        return this.findOne({ where: { club_name: name } });
+    }
+
+    public async newClub(name: string): Promise<Club> {
+        const user = this.create({
+            club_name: name
+        });
+        return this.save(user);
+    }
 }
