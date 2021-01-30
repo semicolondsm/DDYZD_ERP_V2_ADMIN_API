@@ -10,6 +10,7 @@ class HttpError extends Error {
 
 const invalidParameterError = new HttpError("Invalid parameter", 400);
 const supplyAlreadyCheckError = new HttpError("Supply already checked", 400);
+const clubNameExistError = new HttpError("Club name already exist", 400);
 const invalidTokenError = new HttpError("Invalid token", 401);
 const invalidLoginInformationError = new HttpError("Invalid id or password", 403);
 const notAccessTokenError = new HttpError("Authorization is not access token", 403);
@@ -20,6 +21,7 @@ const clubNotFoundError = new HttpError("Club not found error", 404);
 const supplyInvoiceNullError = new HttpError("Invoice is null", 404);
 const clubSupplyListNullError = new HttpError("Club supply list is null", 404);
 const supplyListNullError = new HttpError("List is null", 404);
+const userNotFoundError = new HttpError("User not found", 404);
 const expiredTokenError = new HttpError("Expired token", 410);
 
 export {
@@ -37,4 +39,6 @@ export {
     supplyInvoiceNullError,
     supplyListNullError,
     clubSupplyListNullError,
+    userNotFoundError,
+    clubNameExistError,
 }

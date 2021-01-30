@@ -19,4 +19,10 @@ export default class ClubController {
         const list = await this.clubService.clubSupplyList(req.params.club_id as unknown as number, req.query.state as unknown as number);
         return res.status(200).json(list);
     }
+
+    public newClub = async (req: Request, res: Response, next: NextFunction) => {
+        const { club_name, gcn }: { club_name: string; gcn: number; } = req.body;
+        await this.clubService.newClub(club_name, gcn);
+        return res.status(200).json({ message: "Club created" });
+    }
 }

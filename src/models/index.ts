@@ -4,6 +4,7 @@ import { ClubHasTag } from "./ClubHasTag";
 import { Admin } from "./Admin";
 import { Supply } from "./Supply";
 import { User } from "./User";
+import { ClubHead } from "./ClubHead";
 
 export {
     Club,
@@ -12,4 +13,5 @@ export {
     Admin,
     Supply,
     User,
+    ClubHead,
 }
