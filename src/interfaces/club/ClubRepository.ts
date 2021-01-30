@@ -1,3 +1,4 @@
+import { DeleteResult } from "typeorm";
 import { Club } from "../../models";
 
 export default interface ClubRepository {
@@ -6,4 +7,5 @@ export default interface ClubRepository {
     findAllClubSupplyList(id: number, state: number): Promise<Club[]>;
     findClubByName(name: string): Promise<Club>;
     newClub(name: string): Promise<Club>;
+    deleteClub(id: number): Promise<DeleteResult>;
 }
