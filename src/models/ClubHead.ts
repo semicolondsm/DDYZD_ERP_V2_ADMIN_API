@@ -6,8 +6,8 @@ export class ClubHead {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Club)
-  @JoinColumn({ name: "club_id" })
+  @OneToOne(() => Club, { onDelete: "CASCADE" })
+  @JoinColumn({ name: "club_id"})
   club: Club;
 
   @OneToOne(() => User)
