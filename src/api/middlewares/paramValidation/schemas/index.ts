@@ -5,6 +5,7 @@ import supplySchema from "./supplySchema";
 import stateSchema from "./stateSchema";
 import clubSchema from "./clubSchema";
 import newClubSchema from "./newClubSchema";
+import tagSchema from "./tagSchema";
 
 export {
     loginSchema,
@@ -14,4 +15,5 @@ export {
     stateSchema,
     clubSchema,
     newClubSchema,
+    tagSchema,
 }
