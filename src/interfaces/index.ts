@@ -3,3 +3,4 @@ export * from "./supply";
 export * from "./club";
 export * from "./user";
 export * from "./clubHead";
+export * from "./clubHasTag";

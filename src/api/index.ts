@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { auth, club, supply } from "./routers";
+import { auth, club, supply, tag } from "./routers";
 
 export default () => {
     const app = Router();
@@ -11,6 +11,7 @@ export default () => {
     club(app);
     auth(app);
     supply(app);
+    tag(app);
 
     return app;
 }
