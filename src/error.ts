@@ -11,6 +11,7 @@ class HttpError extends Error {
 const invalidParameterError = new HttpError("Invalid parameter", 400);
 const supplyAlreadyCheckError = new HttpError("Supply already checked", 400);
 const clubNameExistError = new HttpError("Club name already exist", 400);
+const tagExistError = new HttpError("Tag already exist", 400);
 const invalidTokenError = new HttpError("Invalid token", 401);
 const invalidLoginInformationError = new HttpError("Invalid id or password", 403);
 const notAccessTokenError = new HttpError("Authorization is not access token", 403);
@@ -41,4 +42,5 @@ export {
     clubSupplyListNullError,
     userNotFoundError,
     clubNameExistError,
+    tagExistError,
 }
