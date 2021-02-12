@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import config from "../config";
+import { config } from "../config";
 import { invalidLoginInformationError, invalidTokenError, notRefreshTokenError } from "../error";
 import { TokenPayload } from "../interfaces";
 

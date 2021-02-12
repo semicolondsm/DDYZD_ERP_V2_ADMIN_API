@@ -11,7 +11,6 @@ export default class ClubHasTagRepositoryImpl extends Repository<ClubHasTag> imp
     }
 
     public async createTag(club: Club, tag: Tag): Promise<void> {
-
         const newTag = this.create({
             club: club,
             tag: tag
