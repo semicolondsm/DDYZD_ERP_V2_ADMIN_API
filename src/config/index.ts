@@ -1,11 +1,20 @@
-export default {
-    port: Number(process.env.PORT),
-    mysql: {
-        dbHost: process.env.DB_HOST,
-        dbPort: process.env.DB_PORT,
-        dbUser: process.env.DB_USER,
-        dbPass: process.env.DB_PASS,
-        dbName: process.env.DB_NAME,
-    },
-    jwtSecret: process.env.JWT_SECRET
-}
+import databaseConfigList from "./database-config";
+
+type NodeEnvironment = "production" | "test" | "development";
+
+const env: NodeEnvironment = process.env.NODE_ENV as NodeEnvironment;
+const databaseConfig = databaseConfigList[env];
+
+export const config = {
+  NodeEnv: env,
+  type: databaseConfig.type,
+  dbHost: databaseConfig.host,
+  dbPort: databaseConfig.port,
+  dbUser: databaseConfig.username,
+  dbPassword: databaseConfig.password,
+  dbName: databaseConfig.database,
+  dbSynchronize: databaseConfig.synchronize,
+  dbLogging: databaseConfig.logging,
+  jwtSecret: process.env.JWT_SECRET,
+  ServicePort: process.env.PORT,
+} 
