@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  admin-express:
+    image: node:chaegeon
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - /home/semicolon/DDYZD/DDYZD_ERP_V2_ADMIN/logs:/root/admin/logs
+    container_name: admin-express

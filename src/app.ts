@@ -10,13 +10,15 @@ import dotenv from "dotenv";
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 import { HttpError, apiNotFoundError } from "./error";
-import config from "./config";
+import { config } from "./config";
 
 import route from "./api"
 
 // DB connect
 import { createConnection } from "typeorm";
-createConnection()
+import { createOptions } from "./ormconfig";
+
+createConnection(createOptions)
 .then(() => console.log("DB Connected"))
 .catch((err) => {
     logger.error(`Mysql connection error: ${err}`);
@@ -63,6 +65,6 @@ app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(config.port, () => {
-    console.log(`server running on port ${config.port}`);
+app.listen(config.ServicePort, () => {
+    console.log(`server running on port ${config.ServicePort}`);
 })
