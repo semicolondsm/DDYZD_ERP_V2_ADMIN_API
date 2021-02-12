@@ -13,16 +13,9 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
-      "outDir": "./dist",
-      "rootDir": "./",
+      "outDir": "dist",
       "strictNullChecks" : false,
-      "emitDecoratorMetadata": true
-    },
-    "include": [
-      "src/**/*.ts",
-      "ormconfig.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
+      "emitDecoratorMetadata": true,
+      "sourceMap": true
+    }
 }
