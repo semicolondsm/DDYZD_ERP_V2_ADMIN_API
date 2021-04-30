@@ -33,7 +33,7 @@
     "fs": "0.0.1-security",
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
-    "moment-timezone": "^0.5.32",
+    "moment-timezone": "^0.5.33",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "path": "^0.12.7",
